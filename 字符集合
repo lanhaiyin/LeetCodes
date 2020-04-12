@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+ 
+    //0~25表示小写字母的个数，26-51代表大写字母的个数
+    string s;
+   while(cin>>s) 
+   {
+          int arr[52]={0};
+	string::iterator it;int i=0;
+    for(it=s.begin();it<s.end();++it)
+    {
+        if(*it>=97)//小写字母
+        {
+            if(arr[*it-'a']>0)
+            {
+                s.erase(s.begin()+i);
+                it--;i--;
+            }
+            else
+            {
+                arr[*it-'a']++;
+            }
+        }
+        else
+        {
+            if(arr[*it-'A'+26]>0)
+            {
+                s.erase(s.begin()+i);
+                it--;i--;
+            }
+            else
+            {
+                arr[*it-'A'+26]++;
+            }
+			
+        }
+		i++;
+    }
+   cout<<s<<endl;
+   }
+    return 0;
+}
