@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+//4x+3是2x+1执行了两次，7x+8是2x+1执行了三次
+//所以可以求2x+1执行几次可以被1,000,000,007整除，最后的次数是2与3的最小次数和
+int main()
+{
+   int x;
+    cin>>x;
+    long int count=0;
+    while(count<=300000&&x!=0)
+    {
+        x=((x<<1)+1)%1000000007;
+        count++;
+    }
+   
+    count=(count+2)/3;
+    if(count>100000)
+    {
+        cout<<-1;
+        return 0;
+    }
+    cout<<count;
+    return 0;
+}
